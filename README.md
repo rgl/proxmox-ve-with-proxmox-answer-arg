@@ -2,6 +2,8 @@
 
 [![Build](https://github.com/rgl/proxmox-ve-with-proxmox-answer-arg/actions/workflows/build.yml/badge.svg)](https://github.com/rgl/proxmox-ve-with-proxmox-answer-arg/actions/workflows/build.yml)
 
+**NB: This feature is requested in the [Proxmox Bugzilla Bug 8219](https://bugzilla.proxmox.com/show_bug.cgi?id=8219).**
+
 This remasters the [Proxmox VE ISO](https://enterprise.proxmox.com/iso) to have the `proxmox-answer={url}` kernel command line arg to download the pve-installer answer file as a simple HTTP GET request.
 
 This makes it possible to iPXE boot the installation from a simpler HTTP server.
