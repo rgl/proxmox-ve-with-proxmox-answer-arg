@@ -1,16 +1,16 @@
---- usr/sbin/unconfigured.sh.orig	2026-05-20 12:00:00.000000000 +0100
-+++ usr/sbin/unconfigured.sh	2026-10-12 21:52:12.385823476 +0100
-@@ -12,6 +12,7 @@
-     proxdebug=0
+--- usr/sbin/unconfigured.sh.orig	2026-11-24 15:35:04.000000000 +0000
++++ usr/sbin/unconfigured.sh	2026-11-25 22:15:25.360000000 +0000
+@@ -13,6 +13,7 @@
      proxtui=0
      serial=0
+     live_vlan_id=
 +    answer_url=""
      # shellcheck disable=SC2013 # per word splitting is wanted here
      for par in $(cat /proc/cmdline); do
          case $par in
-@@ -27,6 +28,9 @@
-             console=ttyS*|console=ttyAMA*)
-                 serial=1
+@@ -31,6 +32,9 @@
+             proxmox-vlan=*)
+                 live_vlan_id=${par#proxmox-vlan=}
              ;;
 +            proxmox-answer=*)
 +                answer_url="${par#proxmox-answer=}"
@@ -18,9 +18,9 @@
          esac
      done;
  }
-@@ -356,7 +360,10 @@
-     echo "Caching device info from udev"
-     /usr/bin/proxmox-low-level-installer dump-udev
+@@ -409,7 +413,10 @@
+     # it may hold secrets, and non-root daemons like chronyd run here too
+     install -m 0600 /dev/null /run/automatic-installer-answers
  
 -    if [ -f /cdrom/auto-installer-mode.toml ]; then
 +    if [ -n "$answer_url" ]; then

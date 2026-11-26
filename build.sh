@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -euxo pipefail
 
-proxmox_ve_iso_url='https://enterprise.proxmox.com/iso/proxmox-ve_9.2-1.iso'
+proxmox_ve_iso_url='https://enterprise.proxmox.com/iso/proxmox-ve_9.3-1.iso'
 
 if [ -d /vagrant ]; then
   host_path='/vagrant'

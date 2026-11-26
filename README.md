@@ -19,7 +19,7 @@ cd proxmox-ve
 wget \
     -q \
     -O proxmox.iso \
-    https://github.com/rgl/proxmox-ve-with-proxmox-answer-arg/releases/download/v9.2/proxmox-ve-with-proxmox-answer-arg.iso
+    https://github.com/rgl/proxmox-ve-with-proxmox-answer-arg/releases/download/v9.3/proxmox-ve-with-proxmox-answer-arg.iso
 7z e proxmox.iso boot/{initrd.img,linux26}
 mv linux26 vmlinuz
 ```
